@@ -56,16 +56,14 @@ class TicketDetailScreen extends StatelessWidget {
                       '上传时间',
                       ticket.uploadedDate.toString().split('.')[0],
                     ),
-                    if (ticket.eventDate != null) ...[
-                      const Divider(),
-                      _buildDetailRow(
-                        '活动日期',
-                        ticket.eventDate.toString().split(' ')[0],
-                      ),
+                    if (ticket.eventDate != null) ...[const Divider(),
+                    _buildDetailRow(
+                      '活动日期',
+                      ticket.eventDate.toString().split(' ')[0],
+                    ),
                     ],
-                    if (ticket.location != null && ticket.location!.isNotEmpty) ...[
-                      const Divider(),
-                      _buildDetailRow('地点', ticket.location ?? ''),
+                    if (ticket.location != null && ticket.location!.isNotEmpty) ...[const Divider(),
+                    _buildDetailRow('地点', ticket.location ?? ''),
                     ],
                   ],
                 ),
@@ -74,19 +72,18 @@ class TicketDetailScreen extends StatelessWidget {
             const SizedBox(height: 16),
 
             // 描述
-            if (ticket.description != null && ticket.description!.isNotEmpty) ...[
-              Text(
-                '描述',
-                style: Theme.of(context).textTheme.titleMedium,
+            if (ticket.description != null && ticket.description!.isNotEmpty) ...[const Text(
+              '描述',
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 8),
+            Card(
+              child: Padding(
+                padding: const EdgeInsets.all(12),
+                child: Text(ticket.description ?? ''),
               ),
-              const SizedBox(height: 8),
-              Card(
-                child: Padding(
-                  padding: const EdgeInsets.all(12),
-                  child: Text(ticket.description ?? ''),
-                ),
-              ),
-              const SizedBox(height: 16),
+            ),
+            const SizedBox(height: 16),
             ],
 
             // 打开PDF按钮
